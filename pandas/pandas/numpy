@@ -1,0 +1,1 @@
+np.linalg.det(a) is a NumPy function that calculates the determinant of a matrix a.
