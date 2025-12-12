@@ -1,1 +1,19 @@
-np.linalg.det(a) is a NumPy function that calculates the determinant of a matrix a.
+1. np.linalg.det(a) is a NumPy function that calculates the determinant of a matrix a.
+        import numpy as np
+        
+        a = np.array([[1, 2],
+                      [3, 4]])
+        
+        det = np.linalg.det(a)
+        print(det)
+     Output:    -2.0000000000000004
+   
+📌 Notes
+a must be a square matrix (same number of rows and columns).
+The result may have floating-point decimals even if the exact value is an integer.
+
+
+2. np.random.seed(42) fixes the random generator so you always get the same random numbers.
+3. np.random.rand(5) generates 5 random numbers between 0 and 1.
+
+
