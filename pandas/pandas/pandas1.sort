@@ -21,4 +21,20 @@ newDataFrameCreate.head()    // head use krne pr only five colunms show hoga
 type(newDataFrameCreate)
 newDataFrameCreate.describe()
 newDataFrameCreate.dtypes
-newDataFrameCreate[0][0]="harry"
+newDataFrameCreate1=newDataFrameCreate
+newDataFrameCreate1[0][0]="harry"
+newDataFrameCreate1.index
+newDataFrameCreate1.columns
+newDataFrameCreate1.to_numpy()
+newDataFrameCreate1.to_numpy()
+newDataFrameCreate1.T
+newDataFrameCreate1.sort_index(axis=0, ascending=False)
+newDataFrameCreate1.sort_index(axis=0)
+newDataFrameCreate1.sort_index(axis=1, ascending=False)
+newDataFrameCreate1.head()
+newDataFrameCreate1[0]
+type(newDataFrameCreate1[0])
+newDataFrameCreate2=newDataFrameCreate1.copy()
+newDataFrameCreate2[0][0]=444
+newDataFrameCreate2
+newDataFrameCreate1.loc[0,0]=654
