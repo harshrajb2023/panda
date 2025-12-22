@@ -7,3 +7,18 @@ df.to_csv('friends.csv')
 df.to_csv('friends_index_false.csv', index=False)
 df.head(2)
 df.tail(1)
+df.describe()
+test1=pd.read_csv('test.csv')
+ test1['rank']
+test1['rank'][0]
+test1['rank'][0]=112
+test1.to_csv('test2.csv')
+test1.index=['a','b','c']
+series2 = pd.Series(np.random.rand(34))
+type(series2)
+newDataFrameCreate=pd.DataFrame(np.random.rand(334,5), index=np.arange(334))
+newDataFrameCreate.head()    // head use krne pr only five colunms show hoga
+type(newDataFrameCreate)
+newDataFrameCreate.describe()
+newDataFrameCreate.dtypes
+newDataFrameCreate[0][0]="harry"
