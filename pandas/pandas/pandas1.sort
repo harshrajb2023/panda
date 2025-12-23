@@ -36,5 +36,16 @@ newDataFrameCreate1[0]
 type(newDataFrameCreate1[0])
 newDataFrameCreate2=newDataFrameCreate1.copy()
 newDataFrameCreate2[0][0]=444
-newDataFrameCreate2
 newDataFrameCreate1.loc[0,0]=654
+newDataFrameCreate1.columns=list("abcde")
+newDataFrameCreate1.loc[0,0]=23 //if not have in list 0,0 then create a new
+newDataFrameCreate1.drop(0,axis=1)
+newDataFrameCreate1.loc[[2,3],['d','e']]
+newDataFrameCreate1.loc[[2,3],['d','a']]
+newDataFrameCreate1.loc[[2,3],], newDataFrameCreate1.loc[[2,3],:], newDataFrameCreate1.loc[[2,3]]
+newDataFrameCreate1.loc[ :,['d','e']]
+newDataFrameCreate1.loc[newDataFrameCreate1['a']<0.3]
+newDataFrameCreate1.loc[(newDataFrameCreate1['a']<0.3) & (newDataFrameCreate1['c']<0.2)]
+newDataFrameCreate1.drop([0])
+newDataFrameCreate1.drop(['e'],axis=1)
+newDataFrameCreate2=newDataFrameCreate1.copy()
