@@ -49,3 +49,11 @@ newDataFrameCreate1.loc[(newDataFrameCreate1['a']<0.3) & (newDataFrameCreate1['c
 newDataFrameCreate1.drop([0])
 newDataFrameCreate1.drop(['e'],axis=1)
 newDataFrameCreate2=newDataFrameCreate1.copy()
+newDataFrameCreate2.drop(['e','a'],axis=1, inplace=True)  // inplace=True then permament delete original data modify
+newDataFrameCreate2.reset_index()
+newDataFrameCreate2.reset_index(drop=True)
+newDataFrameCreate2['b'].isnull()
+newDataFrameCreate2['b'].head(2).isnull()
+newDataFrameCreate2['b']=None  ,   newDataFrameCreate2['b']=34
+newDataFrameCreate2['b'].isnull()
+newDataFrameCreate2.loc[:,['b']]=35
