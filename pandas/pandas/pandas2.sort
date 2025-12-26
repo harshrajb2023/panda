@@ -19,3 +19,8 @@ df.dropna(how='all', axis=1)
 df.drop_duplicates()
 df.drop_duplicates(subset=['brand'])
 df.drop_duplicates(subset=['style'])
+df.drop_duplicates(subset=['style'], keep="last")
+df.drop_duplicates(subset=['style'], keep=False)
+df.shape
+df.info
+df['style'].value_counts(dropna=False)
