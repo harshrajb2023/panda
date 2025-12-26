@@ -1,2 +1,21 @@
 import pandas as pd
 import numpy as np
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'City': ['New York', 'Los Angeles', 'Chicago']
+}
+df = pd.DataFrame(data)
+df1.dropna()
+df = pd.DataFrame({"name": ['Alfred', 'Batman', 'Catwoman'],
+                   "toy": [np.nan, 'Batmobile', 'Bullwhip'],
+                   "born": [pd.NaT, pd.Timestamp("1940-04-25"),
+                            pd.NaT]})
+
+df.dropna()
+df.dropna(axis='columns')
+df.dropna(how='all')
+df.dropna(how='all', axis=1)
+df.drop_duplicates()
+df.drop_duplicates(subset=['brand'])
+df.drop_duplicates(subset=['style'])
