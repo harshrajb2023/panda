@@ -24,3 +24,9 @@ df.drop_duplicates(subset=['style'], keep=False)
 df.shape
 df.info
 df['style'].value_counts(dropna=False)
+df.notnull()
+df.isnull()
+df['brand'].isnull()
+import mimetypes
+file_type, _ = mimetypes.guess_type("data.xlsx")
+data = pd.read_csv("data.xlsx")
