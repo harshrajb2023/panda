@@ -1,1 +1,80 @@
+Step 1: Import required libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+
+pandas (pd) → Used to create and work with tabular data (DataFrame).
+matplotlib.pyplot (plt) → Used for creating charts and graphs.
+
+Step 2: Create sample data
+data = {'age': [25, 30, 35, 40, 22, 18, 50, 60, 45, 27, 33, 29, 36, 41]}
+
+A dictionary is created.
+Key is "age".
+Value is a list of ages (survey respondents).
+
+Step 3: Convert data into a DataFrame
+df = pd.DataFrame(data)
+
+Converts the dictionary into a pandas DataFrame.
+Result looks like a table with one column:
+age
+25
+30
+35
+...
+
+
+Step 4: Set the figure size
+plt.figure(figsize=(10, 6))
+
+Defines the width and height of the chart.
+10 → width
+6 → height
+Makes the graph clearer and more readable.
+
+Step 5: Create the histogram
+plt.hist(df['age'], bins=10, color='skyblue', edgecolor='black')
+
+df['age'] → Uses the age column data.
+bins=10 → Divides the age range into 10 groups (bars).
+color='skyblue' → Bar color.
+edgecolor='black' → Border color of bars.
+📊 Histogram purpose:
+Shows how frequently ages occur within certain ranges.
+
+Step 6: Add a title
+plt.title('Age Distribution of Survey Respondents')
+
+Adds a heading to the chart.
+Explains what the graph represents.
+
+Step 7: Label the X-axis
+plt.xlabel('Age')
+
+X-axis represents age values.
+
+Step 8: Label the Y-axis
+plt.ylabel('Frequency')
+
+Y-axis shows how many people fall into each age group.
+
+Step 9: Display the plot
+plt.show()
+
+Renders and displays the histogram on screen.
+
+✅ Final Output
+A histogram showing age distribution
+Helps analyze:
+Most common age range
+Spread of ages
+Younger vs older respondents
+
+If you want, I can also explain:
+What bins mean visually
+How to convert this to a bar chart
+How to add mean / median lines
+Or how this is used in real survey analysis
+give me documents
+Histogram Age Distribution – Step By Step Documentation
 
