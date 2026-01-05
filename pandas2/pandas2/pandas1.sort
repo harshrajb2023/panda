@@ -9,3 +9,13 @@ df3=pd.DataFrame([[1,2,3],[4,5,6],[7,8,9]], index=["x","y","z"])
 df4=pd.DataFrame([[1,2,3],[4,5,6],[7,8,9]], index=["x","y","z"],columns=["a","b","c"])
 df4.describe()
 df4.nunique()
+df4['a'].nunique()
+df.to_csv('people.csv', index=False),   df = pd.DataFrame(data)
+data1=pd.read_csv('people.csv')
+use to fetch data using github
+      import requests
+      import pandas as pd
+      from io import StringIO
+      url = 'https://raw.githubusercontent.com/KeithGalli/complete-pandas-tutorial/refs/heads/master/warmup-data/coffee.csv'
+      response = requests.get(url)
+      data2 = pd.read_csv(StringIO(response.text))
