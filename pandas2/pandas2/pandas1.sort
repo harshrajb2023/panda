@@ -12,10 +12,17 @@ df4.nunique()
 df4['a'].nunique()
 df.to_csv('people.csv', index=False),   df = pd.DataFrame(data)
 data1=pd.read_csv('people.csv')
-use to fetch data using github
+method-1 : use to fetch data using github
       import requests
       import pandas as pd
       from io import StringIO
       url = 'https://raw.githubusercontent.com/KeithGalli/complete-pandas-tutorial/refs/heads/master/warmup-data/coffee.csv'
       response = requests.get(url)
       data2 = pd.read_csv(StringIO(response.text))
+      data2
+method-2
+      url = 'https://raw.githubusercontent.com/KeithGalli/complete-pandas-tutorial/refs/heads/master/data/bios.csv'
+      response = requests.get(url)
+      data3 = pd.read_csv(StringIO(response.text))
+      data3.to_csv('bios.csv', index=False)
+      data3
