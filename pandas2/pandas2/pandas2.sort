@@ -38,3 +38,5 @@ data4[data4['discipline'].astype(str).str.contains("Biathlon", na=False)]
 data4[data4['discipline'].astype(str).str.contains("Biathlon|Tennis", na=False)]
 data4.query("discipline.str.contains('Biathlon', na=False)", engine="python")
 data4.query('discipline=="Tennis"')
+data4.query('discipline=="Tennis" and team=="Hibino"')
+data4.query('discipline=="Tennis" and type=="Summer"')
