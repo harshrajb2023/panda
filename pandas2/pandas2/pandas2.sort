@@ -1,1 +1,15 @@
+import requests
+import pandas as pd
+from io import StringIO
 
+url = 'https://raw.githubusercontent.com/KeithGalli/complete-pandas-tutorial/refs/heads/master/warmup-data/coffee.csv'
+response = requests.get(url)
+data2 = pd.read_csv(StringIO(response.text))
+print(data2)
+display(data2)
+data2.sample(10)
+data2.sample(10, random_state=1)
+data2.loc[3:6,"Day"]
+data2.loc[3:6,["Day","Units Sold" ]]
+data2.loc[2,"Units Sold"]=3
+data2.loc[2:5,"Units Sold"]=3
