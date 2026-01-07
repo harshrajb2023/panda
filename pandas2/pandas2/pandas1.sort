@@ -26,3 +26,5 @@ method-2
       data3 = pd.read_csv(StringIO(response.text))
       data3.to_csv('bios.csv', index=False)
       data3
+data5=pd.read_excel('olympics-data.xlsx')
+data5=pd.read_excel('olympics-data.xlsx', sheet_name="results")
