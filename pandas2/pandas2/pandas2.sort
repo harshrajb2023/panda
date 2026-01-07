@@ -13,3 +13,28 @@ data2.loc[3:6,"Day"]
 data2.loc[3:6,["Day","Units Sold" ]]
 data2.loc[2,"Units Sold"]=3
 data2.loc[2:5,"Units Sold"]=3
+data2.iat[2,2]
+data2.iloc[2,0:2]
+data2["Day"]
+data2.Day
+data2["Units Sold"]
+data2.sort_values("Units Sold")
+
+for index, row in data2.iterrows():
+    index
+
+for index, row in data2.iterrows():
+    print(index)
+    print(row)
+    print("\n\n")
+
+data3=pd.read_feather('results.feather')
+data4=pd.read_parquet('results.parquet')
+data4.info()
+data4[data4['place']>24]
+data4[data4['place']>24][['discipline','type']]
+data4.loc[data4['place'] > 24, ['discipline', 'type']]
+data4[data4['discipline'].astype(str).str.contains("Biathlon", na=False)]
+data4[data4['discipline'].astype(str).str.contains("Biathlon|Tennis", na=False)]
+data4.query("discipline.str.contains('Biathlon', na=False)", engine="python")
+data4.query('discipline=="Tennis"')
