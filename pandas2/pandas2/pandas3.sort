@@ -1,1 +1,78 @@
-
+data.query('born_country=="GBR"')
+data.drop(1)
+data.drop(columns=['price'])
+data1=data[['born_city','born_country','born_region']]
+data1.rename(columns={'born_city':'b_city'})
+data1.rename(columns={'b_city':'bn_city'}, inplace=True)
+data=pd.read_csv('bios.csv')
+data['born_date'] = pd.to_datetime(data['born_date'], errors='coerce')
+data['b_year'] = data['born_date'].dt.year
+data['born_date'] = pd.to_datetime(data['born_date'], format='%Y-%m-%d', errors='coerce')
+data['height_category']=data['height_cm'].apply(lambda x:'Short' if x<65 else ('avg'if x<185 else 'Tail'))
+#1
+def categorize_athlete(row):
+    if row['height_cm'] < 175 and row['weight_kg'] < 70:
+        return 'Lightweight'
+    elif row['height_cm'] < 185 or row['weight_kg'] < 80:
+        return 'Middleweight'
+    else:
+        return 'Heavyweight'
+#
+data['Category'] = data.apply(categorize_athlete, axis=1)
+#1
+import pandas as pd
+import requests
+from io import StringIO
+# URL of the CSV file
+url = "https://raw.githubusercontent.com/KeithGalli/complete-pandas-tutorial/master/data/noc_regions.csv"
+# Fetch data while disabling SSL verification (not recommended for sensitive data)
+response = requests.get(url, verify=False)
+# Convert to pandas DataFrame
+df = pd.read_csv(StringIO(response.text))
+# Save it locally
+df.to_csv("noc_regions.csv", index=False)
+df
+#
+merge_with_different_columns = pd.merge(data, df, left_on='born_country', right_on='NOC', how='left')
+merged_data = pd.merge(data, df, left_on='born_country', right_on='NOC', how='left', suffixes=('_left', '_right'))
+merge_with_different_columns[merge_with_different_columns['NOC_x'] != merge_with_different_columns['born_country']][['name', 'NOC_x', 'born_country']]
+usa = merge_with_different_columns [merge_with_different_columns ['born_country']=='USA']. copy ()
+gbr = merge_with_different_columns [merge_with_different_columns ['born_country']=='GBR']. copy ()
+new_df=pd.concat([usa,gbr])
+import numpy as np
+new_df.loc[[54,960],'height_cm']=np.nan
+df_filled = new_df.fillna(new_df['weight_kg'].interpolate())
+new_df['weight_kg'].interpolate()
+new_df['weight_kg'].value_counts()
+new_df['weight_kg'].value_counts().head()
+df.groupby(['Coffee Type'])['Units Sold'].sum()
+df.groupby(['Coffee Type'])['Units Sold'].mean()
+df.groupby(['Coffee Type']).agg({'Units Sold':'sum'})
+df.groupby(['Coffee Type']).agg({'Units Sold':'sum', 'Units Sold':'mean'})
+pivot_df = df.pivot(index='Day', columns='Coffee Type', values='Units Sold')
+pivot_df
+pivot_df.sum()
+pivot_df.sum(axis=1)
+#1
+bios=pd.read_csv('bios.csv')
+bios ['born_date'] = pd. to_datetime(bios ['born_date'])
+bios ['month_born'] = bios['born_date'].dt.month
+bios ['year_born'] = bios['born_date'].dt.year
+bios['weight_kg1']=bios['weight_kg'].shift(2)
+bios['avg']=bios['weight_kg']/bios['height_cm']
+bios['rank']=bios['avg'].rank()
+bios['rank'].sort_values()
+bios.sort_values(['rank'])
+bios.sort_values(['rank'], ascending=False)
+bios.sort_values(['rank'], ascending=False).sample(10)
+bios.sort_values(['rank']).sample(10)[['year_born','rank']]
+#
+coff.cumsum()
+coff.select_dtypes('int').cumsum()
+la=coff[coff['Coffee Type']=="Latte"]. copy ()
+la['Units Sold'].rolling(3).sum()
+la['3day']=la['Units Sold'].rolling(3).sum()
+pd.__version__
+results_arrow=pd.read_csv('results.csv', engine='pyarrow', dtype_backend='pyarrow')
+results.info()
+results["as"].str.contains('Keith')
